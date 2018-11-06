@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+    <acl>
+        <resources>
+            <resource id="Magento_Backend::admin">
+                <resource id="Magento_Backend::content">
+                    <resource id="Lulu_Menu::manage_menu" title="Manage Menu">
+                        <resource id="Lulu_Menu::menu" title="Menu">
+                            <resource id="Lulu_Menu::menu_delete" title="Delete"/>
+                            <resource id="Lulu_Menu::menu_save" title="Save"/>
+                        </resource>
+                    </resource>
+                </resource>
+                <resource id="Magento_Backend::stores">
+                    <resource id="Magento_Backend::stores_settings">
+                        <resource id="Magento_Config::config">
+                            <resource id="Lulu_Menu::config_table" title="Lulu" translate="title">
+                                <resource id="Lulu_Menu::menu_block" title="Menu" translate="title"/>
+                            </resource>
+                        </resource>
+                    </resource>
+                </resource>
+            </resource>
+        </resources>
+    </acl>
+</config>

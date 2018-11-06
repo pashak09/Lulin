@@ -1,0 +1,180 @@
+<style>
+    select {
+        border-width: 1px;
+        border-style: solid;
+        border-color: #aaa #c8c8c8 #c8c8c8 #aaa;
+        background: #fff;
+        font: 12px arial, helvetica, sans-serif;
+    }
+
+    #container_column {
+        border: 1px solid #514943;
+    }
+
+    .title, .title_column {
+        background-color: #514943;
+        padding: 5px;
+        text-align: center;
+    }
+
+    .title > p, .title_column > p {
+        font-size: 15px;
+        color: white;
+    }
+
+    .column {
+        margin: 10px;
+        border: 1px solid #514943;
+    }
+
+    .content {
+        padding: 10px;
+    }
+
+    #container_column > .body {
+        padding: 5px;
+    }
+
+    .filds_item {
+        margin-top: 10px;
+    }
+
+    .column .mode, .filds_item > .block_cms {
+        display: flex;
+        width: 420px;
+        justify-content: space-around;
+    }
+
+    .option_cms {
+        width: 177px;
+    }
+
+    .filds_item > .block_cms > p {
+        width: 90px;
+    }
+
+    .option_mode {
+        width: 176px;
+    }
+
+    .filds_item > .block_cms, .filds_item > .block_list_rows {
+        display: none;
+    }
+
+    #container_column .add_new_column {
+        background-color: #eb5202;
+        margin: 0 auto;
+        display: block;
+        border-color: #eb5202;
+        color: #ffffff;
+        text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.25);
+    }
+
+    #container_column .add_new_column:hover {
+        background-color: #ba4000;
+        border-color: #b84002;
+        box-shadow: 0 0 0 1px #007bdb;
+        color: #ffffff;
+        text-decoration: none
+    }
+
+    #container_column .list_row {
+        justify-content: space-around;
+        display: flex;
+    }
+    #container_column .item_thead{
+        display: flex;
+    }
+    #container_column .item_thead p{
+        margin: 0 90px;
+    }
+    #container_column .list_row input[type="text"]{
+        width: 150px;
+    }
+    #container_column .list_row input[type="text"]{
+        margin:  0 90px;
+    }
+
+</style>
+
+
+<script>
+
+    function addRowcolumn(parent) {
+        let countcolumn = parent.find('.block_rows').children().length;
+    }
+
+    jQuery(document).ready(function () {
+        jQuery('.option_mode').change(function () {
+            let blockContent = jQuery(this).closest('.content'), nameBlock,
+                itemFilds = blockContent.find('.filds_item');
+            itemFilds.children('.block_list_rows, .block_cms').hide();
+            switch (jQuery(this).val()) {
+                case '1': {
+                    itemFilds.find('.block_list_rows').show();
+                    break;
+                }
+                case '2': {
+                    itemFilds.find('.block_cms').css('display', 'flex');
+                    break;
+                }
+                default : {
+                    return false;
+                }
+            }
+        })
+    });
+</script>
+
+<div id="container_column">
+    <div class="title">
+        <p>Columns</p>
+    </div>
+    <div class="body">
+        <div class="column">
+            <div class="title_column">
+                <p>Column 1</p>
+            </div>
+            <div class="content">
+                <div class="mode">
+                    <div class="label">
+                        <p>Display Mode</p>
+                    </div>
+                    <select class="option_mode">
+                        <option value="0">Empty</option>
+                        <option value="1">List</option>
+                        <option value="2">CMS block</option>
+                    </select>
+                </div>
+                <div class="filds_item">
+                    <div class="block_cms">
+                        <p>CMS block</p>
+                        <select class="option_cms">
+                            <option></option>
+                            <option></option>
+                            <option></option>
+                        </select>
+                    </div>
+                    <div class="block_list_rows">
+                        <div class="item_thead">
+                            <p>Title</p>
+                            <p>Link</p>
+                            <p>Bold</p>
+                            <p>Disabled</p>
+                            <p>Category Id</p>
+                        </div>
+                        <div class="list_row">
+                            <p>Line 1</p>
+                            <input type="text" class="lul_title">
+                            <input type="text" class="lul_link">
+                            <input type="checkbox" class="lul_bold">
+                            <input type="checkbox" class="lul_disabled">
+                            <input type="text" class="lul_category_id">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="add_new_column">Add New Column</button>
+    </div>
+</div>

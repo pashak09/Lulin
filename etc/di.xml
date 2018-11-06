@@ -1,0 +1,23 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../lib/internal/Magento/Framework/ObjectManager/etc/config.xsd">
+    <preference for="Lulu\Menu\Api\Data\MenuInterface" type="Lulu\Menu\Model\Menu"/>
+    <preference for="Lulu\Menu\Api\Data\Menu\ItemInterface" type="Lulu\Menu\Model\Menu\Item"/>
+    <preference for="Lulu\Menu\Api\Data\Menu\Item\ColumnInterface" type="Lulu\Menu\Model\Menu\Item\Column"/>
+    <preference for="Lulu\Menu\Api\Menu\Item\ColumnRepositoryInterface" type="Lulu\Menu\Model\Menu\Item\ColumnRepository"/>
+    <preference for="Lulu\Menu\Api\Menu\ItemRepositoryInterface" type="Lulu\Menu\Model\Menu\ItemRepository"/>
+    <preference for="Lulu\Menu\Api\MenuRepositoryInterface" type="Lulu\Menu\Model\MenuRepository"/>
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="lulu_manage_menu_data_source" xsi:type="string">
+                    Lulu\Menu\ResourceModel\Grid\Collection
+                </item>
+                <item name="lulu_manage_menu_item_data_source" xsi:type="string">
+                    Lulu\Menu\ResourceModel\Menu\Grid\Collection
+                </item>
+                <item name="lulu_manage_menu_item_colum_data_source" xsi:type="string">
+                    Lulu\Menu\ResourceModel\Menu\Item\Grid\Collection
+                </item>
+            </argument>
+        </arguments>
+    </type>
+</config>

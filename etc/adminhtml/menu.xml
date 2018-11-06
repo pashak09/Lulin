@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Lulu_Menu::index"
+             title="Menu"
+             module="Lulu_Menu"
+             sortOrder="0"
+             parent="Magento_Backend::content"
+             resource="Lulu_Menu::config"/>
+        <add id="Lulu_Menu::menu" title="Manage Menu" module="Lulu_Menu" sortOrder="10" action="lulu/menu/index" parent="Lulu_Menu::index" resource="Lulu_Menu::config"/>
+    </menu>
+</config>
